@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools Hub — Каталог нейросетей</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <a class="logo" href="#">AI Tools Hub</a>
+    <nav>
+        <a href="#">Главная</a>
+        <a href="#tools">Каталог</a>
+        <a href="#about">О проекте</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <span class="tag">МИР ИСКУССТВЕННОГО ИНТЕЛЛЕКТА</span>
+        <h1>Найди свою идеальную нейросеть</h1>
+        <p>Лучшие инструменты ИИ для учёбы, работы и творчества в одном месте.</p>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="search"
+                placeholder="Например: генерация изображений..."
+            >
+            <button id="search-btn">Найти</button>
+        </div>
+        <p class="search-hint">Начни вводить название или назначение нейросети</p>
+    </section>
+
+    <section id="tools" class="catalog">
+        <div class="section-heading">
+            <div>
+                <span class="tag">КАТАЛОГ</span>
+                <h2>Популярные ИИ-инструменты</h2>
+            </div>
+            <span id="result-count"></span>
+        </div>
+
+        <div class="filters">
+            <button class="filter active" data-category="all">Все</button>
+            <button class="filter" data-category="text">Текст</button>
+            <button class="filter" data-category="image">Изображения</button>
+            <button class="filter" data-category="video">Видео</button>
+            <button class="filter" data-category="audio">Звук</button>
+
+<button class="filter" data-category="favorites">
+    ♥ Избранное
+</button>
+        </div>
+
+        <div class="cards" id="tool-list"></div>
+
+        <p id="empty-message" hidden>Ничего не найдено. Попробуй другой запрос.</p>
+    </section>
+
+    <section id="about" class="about">
+        <h2>О проекте AI Tools Hub</h2>
+        <p>
+            Мы собираем полезные инструменты искусственного интеллекта,
+            чтобы тебе было проще находить подходящие нейросети.
+        </p>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 AI Tools Hub. Все права защищены.</p>
+</footer>
+
+
+<!-- Окно информации о нейросети -->
+<div class="modal" id="tool-modal">
+    <div class="modal-content">
+
+        <button class="modal-close" id="modal-close">×</button>
+
+        <div class="modal-icon" id="modal-icon">🤖</div>
+
+        <h2 id="modal-title">Название нейросети</h2>
+
+        <span class="card-category" id="modal-category">
+            Категория
+        </span>
+
+        <p id="modal-description">
+            Описание нейросети
+        </p>
+
+        <h3>Основные возможности</h3>
+        <ul id="modal-features"></ul>
+
+        <h3>Преимущества</h3>
+        <p id="modal-pros"></p>
+
+        <h3>Недостатки</h3>
+        <p id="modal-cons"></p>
+
+        <a id="modal-link" href="#" target="_blank"
+           rel="noopener noreferrer">
+            Перейти на официальный сайт →
+        </a>
+
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
