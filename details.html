@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools Hub — Information</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="details-header">
+        <a href="index.html" data-i18n="backToCatalog">
+            ← Назад в каталог
+        </a>
+
+        <h1>AI Tools Hub</h1>
+
+        <select id="language-select" aria-label="Select language">
+            <option value="ru">Русский</option>
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+        </select>
+    </header>
+
+    <main class="details-container">
+
+        <section class="details-main">
+            <div class="details-icon" id="tool-icon">🤖</div>
+
+            <h1 id="tool-name">Название нейросети</h1>
+
+            <span id="tool-category" class="card-category">
+                Категория
+            </span>
+
+            <p id="tool-description">
+                Описание нейросети.
+            </p>
+
+            <a href="#" id="tool-link"
+               target="_blank"
+               rel="noopener noreferrer"
+               data-i18n="visitTool">
+                Перейти к нейросети →
+            </a>
+        </section>
+
+        <section class="details-extra">
+
+            <h2 data-i18n="aboutTool">О нейросети</h2>
+            <p id="tool-about"></p>
+
+            <h2 data-i18n="mainFeatures">Основные возможности</h2>
+            <ul id="tool-features"></ul>
+
+            <h2 data-i18n="advantages">Преимущества</h2>
+            <p id="tool-advantages"></p>
+
+            <h2 data-i18n="disadvantages">Недостатки</h2>
+            <p id="tool-disadvantages"></p>
+
+            <h2 data-i18n="price">Стоимость</h2>
+            <p id="tool-price"></p>
+
+        </section>
+
+    </main>
+
+    <script src="details.js"></script>
+</body>
+</html>

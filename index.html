@@ -1,80 +1,238 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090d18">
     <title>AI Tools Hub — Каталог нейросетей</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <a class="logo" href="#">AI Tools Hub</a>
+<header class="main-header">
+    <a class="logo" href="#">AI<span>Tools</span> Hub</a>
+
     <nav>
-        <a href="#">Главная</a>
-        <a href="#tools">Каталог</a>
-        <a href="#about">О проекте</a>
+        <a href="#" data-i18n="navHome">Главная</a>
+        <a href="#tools" data-i18n="navCatalog">Каталог</a>
+        <a href="#about" data-i18n="navAbout">О проекте</a>
     </nav>
+
+    <div class="header-controls">
+        <select id="language-select" class="language-select"
+                aria-label="Выбрать язык">
+            <option value="ru">RU</option>
+            <option value="en">EN</option>
+            <option value="zh">中文</option>
+        </select>
+
+        <button id="theme-toggle" class="theme-toggle" type="button">
+            <span class="theme-icon">
+                <span class="sun">☀️</span>
+                <span class="moon">🌙</span>
+            </span>
+            <span id="theme-label">Дневной режим</span>
+        </button>
+    </div>
 </header>
 
 <main>
+
     <section class="hero">
-        <span class="tag">МИР ИСКУССТВЕННОГО ИНТЕЛЛЕКТА</span>
-        <h1>Найди свою идеальную нейросеть</h1>
-        <p>Лучшие инструменты ИИ для учёбы, работы и творчества в одном месте.</p>
+        <div class="hero-glow"></div>
+
+        <span class="tag hero-tag" data-i18n="heroTag">
+            ✦ МИР ИСКУССТВЕННОГО ИНТЕЛЛЕКТА
+        </span>
+
+        <h1>
+            <span data-i18n="heroTitle">Открой возможности</span>
+            <span class="gradient-text" data-i18n="heroHighlight">
+                искусственного интеллекта
+            </span>
+        </h1>
+
+        <p data-i18n="heroDescription">
+            Находи лучшие нейросети для учёбы, работы,
+            творчества и повседневной жизни.
+            Всё необходимое — в одном месте.
+        </p>
 
         <div class="search-box">
-            <input
-                type="text"
-                id="search"
-                placeholder="Например: генерация изображений..."
-            >
-            <button id="search-btn">Найти</button>
+            <span class="search-symbol">⌕</span>
+            <input type="text" id="search"
+                   placeholder="Найти нейросеть..."
+                   data-i18n-placeholder="searchPlaceholder">
+            <button id="search-btn" data-i18n="searchButton">
+                Найти →
+            </button>
         </div>
-        <p class="search-hint">Начни вводить название или назначение нейросети</p>
+
+        <div class="hero-hint">
+            <span data-i18n="tryFind">Попробуй найти:</span>
+            <a href="#tools">ChatGPT</a>
+            <a href="#tools">Midjourney</a>
+            <a href="#tools">Suno</a>
+        </div>
+
+        <div class="hero-stats">
+            <div>
+                <strong>30+</strong>
+                <span data-i18n="statTools">ИИ-инструментов</span>
+            </div>
+            <div>
+                <strong>4</strong>
+                <span data-i18n="statCategories">Основных направления</span>
+            </div>
+            <div>
+                <strong>24/7</strong>
+                <span data-i18n="statAccess">Доступ к каталогу</span>
+            </div>
+        </div>
+
+        <div class="hero-decoration">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="ai-symbol">AI</div>
+            <div class="floating-chip chip-one">✦ Creativity</div>
+            <div class="floating-chip chip-two">✧ Technology</div>
+        </div>
+    </section>
+
+    <section class="features-section">
+
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 data-i18n="feature1Title">Быстрый поиск</h3>
+            <p data-i18n="feature1Description">
+                Находи подходящие нейросети за несколько секунд.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3 data-i18n="feature2Title">Разные возможности</h3>
+            <p data-i18n="feature2Description">
+                Инструменты для текста, изображений, видео и звука.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">♥</div>
+            <h3 data-i18n="feature3Title">Избранное</h3>
+            <p data-i18n="feature3Description">
+                Сохраняй понравившиеся инструменты.
+            </p>
+        </div>
+
     </section>
 
     <section id="tools" class="catalog">
+
         <div class="section-heading">
             <div>
-                <span class="tag">КАТАЛОГ</span>
-                <h2>Популярные ИИ-инструменты</h2>
+                <span class="tag" data-i18n="catalogTag">✦ БИБЛИОТЕКА ИИ</span>
+                <h2 data-i18n="catalogTitle">Найди свой инструмент</h2>
+                <p data-i18n="catalogDescription">
+                    Выбирай нейросеть под свои задачи.
+                </p>
             </div>
+
             <span id="result-count"></span>
         </div>
 
         <div class="filters">
-            <button class="filter active" data-category="all">Все</button>
-            <button class="filter" data-category="text">Текст</button>
-            <button class="filter" data-category="image">Изображения</button>
-            <button class="filter" data-category="video">Видео</button>
-            <button class="filter" data-category="audio">Звук</button>
+            <button class="filter active" data-category="all"
+                    data-i18n="filterAll">Все инструменты</button>
 
-<button class="filter" data-category="favorites">
-    ♥ Избранное
-</button>
+            <button class="filter" data-category="text"
+                    data-i18n="filterText">Текст</button>
+
+            <button class="filter" data-category="image"
+                    data-i18n="filterImage">Изображения</button>
+
+            <button class="filter" data-category="video"
+                    data-i18n="filterVideo">Видео</button>
+
+            <button class="filter" data-category="audio"
+                    data-i18n="filterAudio">Звук</button>
+
+            <button class="filter" data-category="favorites"
+                    data-i18n="filterFavorites">♥ Избранное</button>
+        </div>
+
+        <div class="sort-container">
+            <label for="sort-tools" data-i18n="sortLabel">
+                Сортировка:
+            </label>
+
+            <select id="sort-tools">
+                <option value="default" data-i18n="sortDefault">
+                    По умолчанию
+                </option>
+                <option value="popular" data-i18n="sortPopular">
+                    Популярные
+                </option>
+                <option value="az" data-i18n="sortAZ">
+                    По алфавиту: А–Я
+                </option>
+                <option value="za" data-i18n="sortZA">
+                    По алфавиту: Я–А
+                </option>
+            </select>
         </div>
 
         <div class="cards" id="tool-list"></div>
 
-        <p id="empty-message" hidden>Ничего не найдено. Попробуй другой запрос.</p>
+        <div class="scroll-hint">
+            <span data-i18n="scrollHint">
+                Листай вниз, чтобы увидеть все нейросети
+            </span>
+            <span>↓</span>
+        </div>
+
+        <p id="empty-message" hidden data-i18n="emptyMessage">
+            Ничего не найдено. Попробуй другой запрос.
+        </p>
+
     </section>
 
-    <section id="about" class="about">
-        <h2>О проекте AI Tools Hub</h2>
-        <p>
-            Мы собираем полезные инструменты искусственного интеллекта,
-            чтобы тебе было проще находить подходящие нейросети.
+    <section id="about" class="about-section">
+
+        <span class="tag" data-i18n="aboutTag">О НАС</span>
+
+        <h2>
+            <span data-i18n="aboutTitle">Искусственный интеллект</span>
+            <span class="gradient-text" data-i18n="aboutHighlight">
+                становится ближе
+            </span>
+        </h2>
+
+        <p data-i18n="aboutDescription">
+            AI Tools Hub — каталог полезных инструментов
+            искусственного интеллекта. Наша цель —
+            помочь тебе находить подходящие нейросети,
+            изучать их возможности и выбирать лучшие решения.
         </p>
+
+        <a href="#tools" class="about-button"
+           data-i18n="aboutButton">
+            Исследовать каталог →
+        </a>
+
     </section>
+
 </main>
 
-<footer>
-    <p>© 2026 AI Tools Hub. Все права защищены.</p>
+<footer class="main-footer">
+    <a class="logo" href="#">AI<span>Tools</span> Hub</a>
+    <p data-i18n="footerDescription">
+        Технологии будущего уже здесь.
+    </p>
+    <span>© 2026 AI Tools Hub</span>
 </footer>
 
-
-<!-- Окно информации о нейросети -->
 <div class="modal" id="tool-modal">
     <div class="modal-content">
 
@@ -88,26 +246,27 @@
             Категория
         </span>
 
-        <p id="modal-description">
-            Описание нейросети
-        </p>
+        <p id="modal-description">Описание нейросети</p>
 
-        <h3>Основные возможности</h3>
+        <h3 data-i18n="modalFeatures">Основные возможности</h3>
         <ul id="modal-features"></ul>
 
-        <h3>Преимущества</h3>
+        <h3 data-i18n="modalPros">Преимущества</h3>
         <p id="modal-pros"></p>
 
-        <h3>Недостатки</h3>
+        <h3 data-i18n="modalCons">Недостатки</h3>
         <p id="modal-cons"></p>
 
         <a id="modal-link" href="#" target="_blank"
-           rel="noopener noreferrer">
+           rel="noopener noreferrer" data-i18n="modalLink">
             Перейти на официальный сайт →
         </a>
 
     </div>
 </div>
+
 <script src="script.js"></script>
+<script src="theme.js"></script>
+
 </body>
 </html>
